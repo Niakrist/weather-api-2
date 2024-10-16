@@ -1,0 +1,42 @@
+.detailsItemInfoAll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.detailsItemInfoAll img {
+  width: 32px;
+  height: 32px;
+}
+
+.detailsItemTitle {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-small-title);
+  line-height: var(--line-height-primary);
+  color: var(--text-color-primary);
+}
+.detailsItemValue {
+  font-weight: var(--font-weight-primary);
+  font-size: var(--font-size-value);
+  line-height: var(--line-height-one);
+  color: var(--text-color-primary);
+  position: relative;
+}
+
+.detailsItemInfoCustom {
+  display: grid;
+}
+
+.detailsItemDesc {
+  font-size: var(--font-size-additional);
+  line-height: var(--line-height-additional);
+  color: var(--text-color-additional);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailsItemDesc span {
+  margin-left: 2px;
+}
