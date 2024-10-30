@@ -1,0 +1,20 @@
+.sliderMenu {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+  gap: 32px;
+}
+
+@media (max-width: 1023px) {
+  .sliderMenu {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sliderMenu {
+    gap: 16px;
+  }
+}

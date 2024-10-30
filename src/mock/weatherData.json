@@ -1,0 +1,51 @@
+{
+  "location": "Москва",
+  "day": "Суббота, 06 января",
+  "time": "11:29",
+  "temperature": "-7",
+  "weatherImage": "day04",
+  "weatherDescription": "Облачно с прояснениями",
+  "weatherFeels": "-11",
+  "cards": [
+    {
+      "title": "humidity",
+      "name": "Влажность",
+      "value": "75 %",
+      "description": ["0%", "100%"],
+      "type": "humidity"
+    },
+    {
+      "title": "pressure",
+      "name": "Давление",
+      "value": "761",
+      "description": "Повышенное",
+      "type": "pressure"
+    },
+    {
+      "title": "visibility",
+      "name": "Видимость",
+      "value": "28 км",
+      "description": "Нормальная",
+      "type": "visibility"
+    },
+    {
+      "title": "sunrise",
+      "name": "Рассвет",
+      "time": "8:42",
+      "description": "Прошло: 02:47"
+    },
+    {
+      "title": "sunset",
+      "name": "Закат",
+      "time": "16:37",
+      "description": "Осталось: 05:08"
+    },
+    {
+      "title": "wind",
+      "name": "Сила ветра",
+      "speed": "2 м/с",
+      "description": "Северо-западный",
+      "direction": "315"
+    }
+  ]
+}

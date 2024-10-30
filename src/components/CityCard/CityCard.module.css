@@ -1,0 +1,93 @@
+.cityCard,
+.today,
+.other {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cityCard {
+  height: 408px;
+  padding: 8px;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.today {
+  height: 96px;
+}
+
+.temp {
+  height: 112px;
+  font-size: 112px;
+  font-weight: 700;
+  line-height: 112px;
+}
+
+.other {
+  height: 56px;
+}
+
+.otherInfo {
+  display: flex;
+  justify-content: center;
+  column-gap: 8px;
+}
+
+.otherImage {
+  width: 24px;
+  height: 24px;
+}
+
+.temp::after,
+.otherFeel::after {
+  content: "°";
+}
+
+.otherFeel::before {
+  content: "Ощущается как ";
+}
+
+@media (max-width: 1023px) {
+  .cityCard {
+    height: 306px;
+    padding: 0;
+  }
+  .today {
+    height: 92px;
+  }
+  .other {
+    height: 54px;
+  }
+}
+
+@media (max-width: 885px) {
+  .otherInfo {
+    column-gap: 6px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cityCard {
+    height: 184px;
+    padding-block: 0;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .today {
+    height: 60px;
+  }
+  .temp {
+    height: 56px;
+    font-size: 56px;
+    line-height: 56px;
+  }
+  .other {
+    height: 36px;
+  }
+  .otherImage {
+    width: 16px;
+    height: 16px;
+  }
+}

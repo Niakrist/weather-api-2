@@ -1,0 +1,29 @@
+.footer {
+  height: 84px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer a {
+  color: var(--text-color);
+  text-decoration: underline 1px;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    height: 48px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer {
+    height: 68px;
+  }
+}

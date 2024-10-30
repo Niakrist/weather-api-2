@@ -1,0 +1,41 @@
+.buttonInput {
+  display: none;
+}
+
+.buttonLabel {
+  color: rgba(166, 166, 166, 1);
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: pointer;
+  padding-right: 2px;
+}
+
+.underline {
+  transition: var(--transition);
+  opacity: 0;
+  margin-top: 2px;
+  height: 2px;
+  background-color: rgba(166, 166, 166, 1);
+  border-radius: 1px;
+}
+
+.buttonLabel:hover ~ .underline {
+  opacity: 1;
+}
+
+.buttonInput:checked ~ .buttonLabel {
+  color: var(--text-color);
+  cursor: default;
+}
+
+.buttonInput:checked ~ .underline {
+  background: var(--text-color);
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .underline {
+    margin-top: 2px;
+    height: 1px;
+  }
+}

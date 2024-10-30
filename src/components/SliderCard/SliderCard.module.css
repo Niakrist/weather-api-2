@@ -1,0 +1,51 @@
+.galleryCard {
+  display: flex;
+  gap: 16px;
+  flex: 0 0 auto;
+  align-items: center;
+  height: 100%;
+  border-radius: var(--radius);
+  background: var(--element-background);
+  padding: 16px;
+  color: var(--accent-color);
+}
+
+.cardImage {
+  width: 32px;
+  height: 32px;
+}
+
+.cardTemp {
+  display: inline-flex;
+  gap: 3px;
+}
+
+@media (max-width: 767px) {
+  .galleryCard {
+    padding: 12px;
+    gap: 12px;
+    flex-direction: column;
+  }
+  .galleryCard img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .galleryCard {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .galleryCard {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 886px) and (max-width: 1023px) {
+  .galleryCard {
+    flex-direction: row;
+  }
+}

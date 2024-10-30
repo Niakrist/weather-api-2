@@ -1,0 +1,49 @@
+.logoLink {
+  height: 48px;
+  width: 192px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoDesktop {
+  width: inherit;
+  height: 31px;
+}
+
+.logoTablet {
+  display: none;
+  width: 54px;
+}
+
+.logoMobile {
+  display: none;
+  width: 32px;
+}
+
+@media (max-width: 1023px) {
+  .logoLink {
+    width: 54px;
+  }
+  .logoDesktop {
+    display: none;
+  }
+  .logoTablet {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .logoLink {
+    width: 32px;
+    height: 32px;
+  }
+  .logoTablet {
+    display: none;
+  }
+  .logoMobile {
+    display: block;
+    width: 32px;
+    height: 32px;
+  }
+}

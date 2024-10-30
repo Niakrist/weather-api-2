@@ -1,8 +1,13 @@
-# React + Vite
+# WeatherApp 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Task 1: Григорий, grechka730
 
-Currently, two official plugins are available:
+## Task 2: andrei_58685
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# DEBUGING TASK
+
+## Баги и Рекомендации Исправил:
+
+- 886px, 768px проблема одна и таже: https://ibb.co/w02Dks3
+- 640px, 375px - уехали кнопки(Tabы) внутри Tabbar.
+- Предусмотреть поведение ,если данные свойства current будут приходить с бэка и их значение будет больше 100, например 120.

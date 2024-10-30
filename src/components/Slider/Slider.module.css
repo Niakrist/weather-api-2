@@ -1,0 +1,144 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 192px;
+  padding-block: 32px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.sliderCarousel {
+  width: 100%;
+  height: 64px;
+}
+
+.previousButton,
+.nextButton {
+  min-width: 56px;
+  height: 48px;
+  background: var(--element-background);
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.previousButtonImg,
+.nextButtonImg {
+  width: 24px;
+  height: 24px;
+}
+
+.previousButton:disabled,
+.nextButton:disabled {
+  opacity: 50%;
+}
+
+.previousButton:enabled:hover,
+.nextButton:enabled:hover {
+  background: var(--active-element-background);
+}
+
+.nextButton {
+  transform: rotate(180deg);
+}
+
+.carouselHours,
+.carouselDaily {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.gallery {
+  display: flex;
+  box-sizing: border-box;
+  width: 880px;
+  height: 100%;
+  gap: 16px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  mask-image: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, #000000 4%);
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery li {
+  display: contents;
+}
+
+@media (max-width: 767px) {
+  .slider {
+    height: 174px;
+    padding-block: 16px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .sliderMenu {
+    gap: 16px;
+    height: 22px;
+  }
+  .sliderCarousel {
+    height: 104px;
+  }
+  .carouselHours,
+  .carouselDaily {
+    gap: 16px;
+  }
+  .previousButton,
+  .nextButton {
+    min-width: 40px;
+    height: 32px;
+  }
+  .previousButtonImg,
+  .nextButtonImg {
+    width: 16px;
+    height: 16px;
+  }
+  .gallery {
+    gap: 8px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .slider {
+    height: 116px;
+  }
+  .sliderCarousel {
+    height: 46px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .slider {
+    height: 240px;
+    padding-block: 24px;
+  }
+  .sliderMenu {
+    gap: 24px;
+  }
+  .sliderCarousel {
+    height: 136px;
+  }
+  .carouselHours,
+  .carouselDaily {
+    gap: 24px;
+  }
+  .gallery {
+    gap: 12px;
+  }
+}
+
+@media (min-width: 886px) and (max-width: 1023px) {
+  .slider {
+    height: 168px;
+  }
+  .sliderCarousel {
+    height: 64px;
+  }
+}

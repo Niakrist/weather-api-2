@@ -1,0 +1,63 @@
+.cardValues,
+.cardBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
+  height: 196px;
+  padding: 16px;
+  background: var(--element-background);
+  border-radius: var(--radius);
+  color: var(--accent-color);
+}
+
+.cardValues {
+  height: 116px;
+  font-size: 32px;
+  line-height: 32px;
+}
+
+.cardBar {
+  height: 32px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.barValues {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.barValues[name="humidity"] {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .card {
+    height: 148px;
+    padding: 12px;
+    gap: 12px;
+  }
+  .cardValues {
+    height: 86px;
+    font-size: 22px;
+    line-height: 22px;
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  .cardBar {
+    height: 24px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+}

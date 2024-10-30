@@ -1,0 +1,79 @@
+.form {
+  box-sizing: border-box;
+  width: 506px;
+  height: 48px;
+  color: var(--disabled-text-color);
+  background: var(--element-background);
+  border-radius: var(--radius);
+  padding-inline: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.formInput {
+  width: 434px;
+  transition: var(--transition);
+  text-transform: capitalize;
+}
+
+.formInput::placeholder {
+  text-transform: none;
+}
+
+.form:hover,
+.form:focus-within {
+  background: var(--active-element-background);
+}
+
+.formButton {
+  width: 24px;
+  height: 24px;
+}
+
+.buttonIcon {
+  width: inherit;
+  height: inherit;
+}
+
+@media (max-width: 767px) {
+  .form {
+    width: 84.2%;
+    height: 32px;
+    padding-inline: 12px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .formInput {
+    width: 93%;
+  }
+  .formButton {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .form {
+    width: 70.8%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 885px) {
+  .form {
+    width: 71.7%;
+  }
+  .formInput {
+    width: 85%;
+  }
+}
+
+@media (min-width: 886px) and (max-width: 1023px) {
+  .form {
+    width: 75.6%;
+  }
+  .formInput {
+    width: 93.6%;
+  }
+}

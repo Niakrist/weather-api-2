@@ -1,0 +1,32 @@
+.main {
+  height: 472px;
+  display: grid;
+  grid-template-columns: 1fr 506px;
+  column-gap: 16px;
+  align-items: center;
+  padding-block: 32px;
+}
+
+@media (max-width: 767px) {
+  .main {
+    height: 552px;
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: 184px 304px;
+    padding-block: 16px;
+    gap: 32px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main {
+    height: 806px;
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: 306px 404px;
+    padding-block: 24px;
+    gap: 48px;
+    justify-content: center;
+  }
+}
