@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Input.module.css";
 import Icon from "../Icon/Icon";
+import { CLOSE, SEARCH } from "../../constants/constants";
 
 export default function Input() {
   const [value, setValue] = useState("");
@@ -36,7 +37,7 @@ export default function Input() {
           className={styles.formButton}
           title="Поиск"
           onClick={onSubmit}>
-          <Icon id="search-icon" className={styles.buttonIcon} />
+          <Icon name={SEARCH} className={styles.buttonIcon} />
         </button>
       ) : (
         <button
@@ -44,7 +45,7 @@ export default function Input() {
           className={styles.formButton}
           title="Сброс"
           onClick={onReset}>
-          <Icon id="clear-input-icon" className={styles.buttonIcon} />
+          <Icon name={CLOSE} className={styles.buttonIcon} />
         </button>
       )}
     </form>

@@ -4,8 +4,8 @@ const LogoTablet = ({ className }) => {
   return (
     <svg
       className={className}
-      width=""
-      height=""
+      width="0"
+      height="0"
       viewBox="0 0 54 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">

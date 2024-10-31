@@ -1,4 +1,5 @@
 import styles from "./ProgressBar.module.css";
+import { PRESSURE } from "../../constants/constants";
 
 export default function ProgressBar({ title, current, type }) {
   const mask =
@@ -10,18 +11,13 @@ export default function ProgressBar({ title, current, type }) {
           mask: `radial-gradient(circle at calc(0.91 * ${current}% + 3.3px), white 3px, transparent 3px, transparent 4.5px, rgba(218, 218, 218, 0.4) 4.5px)`,
         };
 
-  const getBackgroundColorClass = (type) => {
-    if (type === "pressure") {
-      return styles.barProgressPressure;
-    }
-    return styles.barProgress;
-  };
-
   return (
     <input
       type="range"
       name={title}
-      className={getBackgroundColorClass(type)}
+      className={
+        type === PRESSURE ? styles.barProgressPressure : styles.barProgress
+      }
       min={0}
       max={100}
       step="any"

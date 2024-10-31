@@ -4,8 +4,8 @@ const LogoDesctop = ({ className }) => {
   return (
     <svg
       className={className}
-      width="192"
-      height="48"
+      width="0"
+      height="0"
       viewBox="0 0 192 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">

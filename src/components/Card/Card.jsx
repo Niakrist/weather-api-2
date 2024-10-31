@@ -5,9 +5,6 @@ import styles from "./Card.module.css";
 export default function Card({ data }) {
   const value = parseInt(data.value);
   const current = value > 100 ? value / 10 : value;
-  const rotate = {
-    transform: `rotate(${parseInt(data.direction)}deg)`,
-  };
 
   return (
     <article className={styles.card}>
@@ -16,7 +13,6 @@ export default function Card({ data }) {
         <Icon
           name={data.title}
           className={styles.icon}
-          style={rotate}
           alt={data.name}
           loading="lazy"
         />

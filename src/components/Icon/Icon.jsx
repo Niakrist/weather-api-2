@@ -1,8 +1,9 @@
 import React from "react";
 
-import Barometr from "./icons/Barometr";
+import Pressure from "./icons/Pressure";
 import Chevron from "./icons/Chevron";
 import Close from "./icons/Close";
+import Scattered from "./icons/Scattered";
 import Clouds from "./icons/Clouds";
 import Humidity from "./icons/Humidity";
 import LogoDesctop from "./icons/LogoDesctop";
@@ -15,11 +16,11 @@ import Visibility from "./icons/Visibility";
 import Wind from "./icons/Wind";
 
 export default function Icon({ name, className }) {
-  console.log("namclassNamee: ", className);
   const inconsName = {
-    barometr: <Barometr className={className} />,
+    pressure: <Pressure className={className} />,
     chevron: <Chevron className={className} />,
     close: <Close className={className} />,
+    day03: <Scattered className={className} />,
     day04: <Clouds className={className} />,
     humidity: <Humidity className={className} />,
     logoDesctop: <LogoDesctop className={className} />,

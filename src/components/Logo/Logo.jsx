@@ -1,12 +1,13 @@
 import styles from "./Logo.module.css";
 import Icon from "../Icon/Icon";
+import { LOGODESCTOP, LOGOMOBILE, LOGOTABLET } from "../../constants/constants";
 
 export default function Logo() {
   return (
-    <a href="/" className={styles.logoLink}>
-      <Icon id="desktop-logo" className={styles.logoDesktop} />
-      <Icon id="tablet-logo" className={styles.logoTablet} />
-      <Icon id="mobile-logo" className={styles.logoMobile} />
+    <a href="/">
+      <Icon name={LOGODESCTOP} className={styles.logoDesktop} />
+      <Icon name={LOGOTABLET} className={styles.logoTablet} />
+      <Icon name={LOGOMOBILE} className={styles.logoMobile} />
     </a>
   );
 }

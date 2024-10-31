@@ -3,6 +3,7 @@ import Icon from "../Icon/Icon";
 import styles from "./SliderCard.module.css";
 
 export default function SliderCard({ time, icon, value }) {
+  console.log("icon: ", icon);
   return (
     <article className={styles.galleryCard}>
       <time datatime={time}>{time}</time>
