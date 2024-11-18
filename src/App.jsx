@@ -7,58 +7,37 @@ import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 
 import { MainContext } from "./Context/context";
-import { fetchWeatherData } from "./api/fetchWeatherData";
-import { fetchCityData } from "./api/fetchCityData";
+
 import { fillTemplateWeatherData } from "./utils/fillTemplateWeatherData";
+import { useCityData } from "./hooks/useCityData";
+import { useWeatherData } from "./hooks/useWeatherData";
 
 const App = () => {
   const [oneDayDataFromAPI, setOneDayDataFromAPI] = useState([]);
   const [fiveDaysDataFromAPI, setFiveDaysDataFromAPI] = useState([]);
 
-  const [weatherData, setWeatherData] = useState(null);
-  const [cityData, setCityData] = useState(null);
+  const [inputSearchCity, setInputSearchCity] = useState("");
   const [cityName, setCityName] = useState("Москва");
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetchCityData(cityName)
-      .then((data) => setCityData(data))
-      .catch((err) => console.log(err))
-      .finally(setIsLoading(false));
-  }, [cityName]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    if (cityData) {
-      fetchWeatherData(cityData.lat, cityData.lon)
-        .then((data) => setWeatherData(data))
-        .catch((err) => console.log(err))
-        .finally(setIsLoading(false));
-    }
-  }, [cityData]);
-
-  useEffect(() => {
-    console.log("isLoading: ", isLoading);
-  }, [isLoading, cityName, cityData]);
+  const { cityData, isLoadingCity, errorCity } = useCityData(
+    cityName,
+    inputSearchCity
+  );
+  const { weatherData, isWeatherData, errorWeatherData } =
+    useWeatherData(cityData);
 
   useEffect(() => {
     fetchData("/one-day-data.json", setOneDayDataFromAPI);
     fetchData("/five-day-data.json", setFiveDaysDataFromAPI);
   }, []);
 
-  if (!weatherData) {
+  if (isLoadingCity || isWeatherData || !weatherData) {
     return (
       <div style={{ color: "white", fontSize: "40px" }}>Загрузка данных</div>
     );
   }
 
-  // {
-  //   !isLoading && (
-  //     <div style={{ color: "white", fontSize: "40px" }}>Загрузка данных</div>
-  //   );
-  // }
+  if (errorCity) console.log(errorCity);
+  if (errorWeatherData) console.log(errorWeatherData);
 
   const cardsWeatherData = fillTemplateWeatherData(weatherData);
 
@@ -73,9 +52,10 @@ const App = () => {
           cityData,
           cityName,
           setCityName,
-          setIsLoading,
-          setCityData,
-        }}>
+          inputSearchCity,
+          setInputSearchCity,
+        }}
+      >
         <Header />
 
         <Main />

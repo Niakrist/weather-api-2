@@ -1,39 +1,16 @@
 import { useContext } from "react";
-import { useState } from "react";
-import { fetchCityData } from "../../api/fetchCityData";
 import { MainContext } from "../../Context/context";
 import styles from "./Input.module.css";
 
 const Input = () => {
-  const { setCityName, cityData, setCityData, cardsWeatherData, setIsLoading } =
+  const { setCityName, inputSearchCity, setInputSearchCity } =
     useContext(MainContext);
-  const [inputSearchCity, setInputSearchCity] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Клик");
-
-    setIsLoading(true);
-
-    try {
-      const data = await fetchCityData(inputSearchCity);
-      setCityName(inputSearchCity);
-
-      console.log("data: ", data);
-      if (data?.address?.city.toLowerCase() !== inputSearchCity.toLowerCase()) {
-        throw new Error(
-          "Указанного города не существует!!!!!!!!!!!!!!!!!!!!!!!!!!"
-        );
-      }
-
-      setInputSearchCity("");
-      setCityData(data);
-    } catch (error) {
-      console.error("Ошибка при получении данных о городе:", error);
-    } finally {
-      setIsLoading(false);
-    }
+    if (!inputSearchCity) return;
+    setCityName(inputSearchCity);
   };
 
   const handleCleanInput = () => {
