@@ -1,23 +1,40 @@
-import Icon from "../Icon/Icon";
 import styles from "./CityCard.module.css";
+import Icon from "../Icon/Icon";
+import { useContext } from "react";
+import { MainContext } from "../../Context/context";
+import { fromKelvinsToDegrees } from "../../utils/calculationOfValues";
 
-export default function CityCard() {
-  const weatherData = require("../../mock/weatherData.json");
+const CityCard = () => {
+  const { cityName, weatherData } = useContext(MainContext);
+
   return (
-    <section className={styles.cityCard}>
-      <div className={styles.today}>
-        <h3>{weatherData.location}</h3>
-        <time>{weatherData.day}</time>
-        <time>{weatherData.time}</time>
+    <div className={styles["wrapper"]}>
+      <div className={styles["top"]}>
+        <h2 className={styles["city"]}>{cityName}</h2>
+        <time dateTime="01-06" className={styles["text"]}>
+          Суббота, 06 января
+        </time>
+        <time dateTime="11h 29m" className={styles["text"]}>
+          11:29
+        </time>
       </div>
-      <span className={styles.temp}>{weatherData.temperature}</span>
-      <div className={styles.other}>
-        <figure className={styles.otherInfo}>
-          <Icon name={weatherData.weatherImage} className={styles.otherImage} />
-          <figcaption>{weatherData.weatherDescription}</figcaption>
+      <p className={styles["temperature"]}>
+        {weatherData.main && fromKelvinsToDegrees(weatherData.main.temp)}°
+      </p>
+      <div className={styles["bottom"]}>
+        <figure className={styles["inner"]}>
+          <Icon name={"day-cloudy"} className={null} />
+          <figcaption className={styles["text"]}>Облачно</figcaption>
         </figure>
-        <p className={styles.otherFeel}>{weatherData.weatherFeels}</p>
+        <p className={styles["text"]}>
+          Ощущается как{" "}
+          {weatherData.main &&
+            fromKelvinsToDegrees(weatherData.main.feels_like)}
+          °
+        </p>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default CityCard;

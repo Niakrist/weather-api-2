@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Облачно",
+    "dateTime": "12:00",
+    "temperature": "-7"
+  },
+  {
+    "title": "Облачно",
+    "dateTime": "15:00",
+    "temperature": "-5"
+  },
+  {
+    "title": "Облачно",
+    "dateTime": "18:00",
+    "temperature": "-7"
+  },
+  {
+    "title": "Облачно",
+    "dateTime": "21:00",
+    "temperature": "-9"
+  },
+  {
+    "title": "Облачно",
+    "dateTime": "00:00",
+    "temperature": "-11"
+  },
+  {
+    "title": "Облачно",
+    "dateTime": "03:00",
+    "temperature": "-7"
+  },
+  {
+    "title": "Облачно",
+    "dateTime": "06:00",
+    "temperature": "-7"
+  },
+  {
+    "title": "Облачно",
+    "dateTime": "09:00",
+    "temperature": "-7"
+  }
+]

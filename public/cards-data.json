@@ -1,0 +1,54 @@
+[
+  {
+    "id": "humidity",
+    "title": "Влажность",
+    "value": "weatherData.main.humidity",
+    "measurement": "%",
+    "hasProgressBar": true,
+    "meaning": "0%",
+    "meaningEnd": "100%"
+  },
+  {
+    "id": "pressure",
+    "title": "Давление",
+    "value": "weatherData.main.pressure",
+    "measurement": "",
+    "hasProgressBar": true,
+    "meaning": "Повышенное",
+    "meaningEnd": ""
+  },
+  {
+    "id": "visibility",
+    "title": "Видимость",
+    "value": "weatherData.visibility",
+    "measurement": "км",
+    "hasProgressBar": true,
+    "meaning": "Нормальная",
+    "meaningEnd": ""
+  },
+  {
+    "id": "timezone",
+    "title": "Рассвет",
+    "value": "8:42",
+    "measurement": "",
+    "hasProgressBar": false,
+    "meaning": "Прошло: 02:47"
+  },
+  {
+    "id": "timezone",
+    "title": "Закат",
+    "value": "16:37",
+    "measurement": "",
+    "hasProgressBar": false,
+    "meaning": "Осталось: 05:08"
+  },
+  {
+    "id": "wind",
+    "title": "Сила ветра",
+    "value": "weatherData.wind.speed",
+    "deg": "weatherData.wind.deg",
+    "measurement": "м/с",
+    "hasProgressBar": false,
+    "meaning": "Северо-западный"
+  }
+]

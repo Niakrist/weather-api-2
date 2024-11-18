@@ -1,34 +1,6 @@
-.logoDesktop {
-  width: 192px;
-  height: 48px;
-}
-
-.logoTablet {
-  display: none;
-}
-
-.logoMobile {
-  display: none;
-}
-
-@media (max-width: 1023px) {
-  .logoDesktop {
-    display: none;
-  }
-  .logoTablet {
-    display: block;
-    width: 54px;
-    height: 48px;
-  }
-}
-
-@media (max-width: 767px) {
-  .logoTablet {
-    display: none;
-  }
-  .logoMobile {
-    display: block;
-    width: 32px;
-    height: 32px;
+@media (max-width: 768px) {
+  .logo-small {
+    width: clamp(2rem, -4.875rem + 17.19vw, 3.375rem);
+    height: clamp(2rem, -3rem + 12.5vw, 3rem);
   }
 }

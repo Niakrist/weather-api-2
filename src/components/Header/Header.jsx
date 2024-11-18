@@ -1,12 +1,14 @@
+import Logo from "./../Logo/Logo";
+import Input from "./../Input/Input";
 import styles from "./Header.module.css";
-import Logo from "../Logo/Logo";
-import Input from "../Input/Input";
 
-export default function Header() {
+const Header = () => {
   return (
-    <header className={styles.header}>
+    <header className={styles["header"]}>
       <Logo />
       <Input />
     </header>
   );
-}
+};
+
+export default Header;

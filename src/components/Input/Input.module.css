@@ -1,79 +1,100 @@
 .form {
-  box-sizing: border-box;
+  position: relative;
+}
+
+.input {
+  position: relative;
+  border-radius: 8px;
+  background-color: var(--color-bg);
+  border: none;
+
   width: 506px;
   height: 48px;
-  color: var(--disabled-text-color);
-  background: var(--element-background);
-  border-radius: var(--radius);
-  padding-inline: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: var(--transition);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+
+  letter-spacing: 0px;
+  color: var(--color-text-card);
+
+  text-align: left;
+  outline: none;
+
+  padding: 12px 16px;
+
+  transition: background-color 0.2s;
 }
 
-.formInput {
-  width: 434px;
-  transition: var(--transition);
-  text-transform: capitalize;
+.input::placeholder {
+  color: rgb(112, 112, 112);
+  font-size: 20px;
+  line-height: 24;
 }
 
-.formInput::placeholder {
-  text-transform: none;
+.input:hover,
+.input:focus {
+  background-color: var(--color-bg-hover);
 }
 
-.form:hover,
-.form:focus-within {
-  background: var(--active-element-background);
+.btn,
+.btnColse {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 48px;
+  width: 48px;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  right: 0;
+  top: 0;
+  padding: 12px;
+  cursor: pointer;
 }
 
-.formButton {
-  width: 24px;
-  height: 24px;
+.btn {
+  background-image: url("./../../assets/icon/search.svg");
+}
+.btnColse {
+  background-image: url("./../../assets/icon/close.svg");
 }
 
-.buttonIcon {
-  width: inherit;
-  height: inherit;
+.btnColse:hover {
+  background-image: url("./../../assets/icon/close-hover.svg");
 }
 
-@media (max-width: 767px) {
+@media (max-width: 886px) {
+  .input {
+    width: clamp(30.188rem, -17.813rem + 100vw, 37.563rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .input {
+    width: clamp(25.563rem, 2.438rem + 57.81vw, 30.188rem);
+    height: clamp(2rem, -3rem + 12.5vw, 3rem);
+    padding: clamp(0.5rem, -0.75rem + 3.13vw, 0.75rem)
+      clamp(0.75rem, -0.5rem + 3.13vw, 1rem);
+    font-size: clamp(0.875rem, -2.25rem + 7.81vw, 1.5rem);
+    line-height: clamp(1rem, -1.5rem + 6.25vw, 1.5rem);
+  }
+  .input::placeholder {
+    font-size: clamp(0.875rem, -1rem + 4.69vw, 1.25rem);
+    line-height: clamp(1rem, -1.5rem + 6.25vw, 1.5rem);
+  }
+  .btn {
+    height: clamp(2rem, -3rem + 12.5vw, 3rem);
+    background-size: clamp(0.75rem, -3rem + 9.38vw, 1.5rem);
+    width: clamp(2rem, -3rem + 12.5vw, 3rem);
+    padding: clamp(0.5rem, -0.75rem + 3.13vw, 0.75rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .input {
+    width: clamp(16.438rem, 3.525rem + 55.09vw, 25.563rem);
+  }
   .form {
-    width: 84.2%;
-    height: 32px;
-    padding-inline: 12px;
-    font-size: 14px;
-    line-height: 16px;
-  }
-  .formInput {
-    width: 93%;
-  }
-  .formButton {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-@media (min-width: 640px) and (max-width: 767px) {
-  .form {
-    width: 70.8%;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 885px) {
-  .form {
-    width: 71.7%;
-  }
-  .formInput {
-    width: 85%;
-  }
-}
-
-@media (min-width: 886px) and (max-width: 1023px) {
-  .form {
-    width: 75.6%;
-  }
-  .formInput {
-    width: 93.6%;
+    margin-left: 16px;
   }
 }

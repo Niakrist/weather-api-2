@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Переменная облачность",
+    "day": "Вс",
+    "dateTime": "07 янв",
+    "temperature": "-17",
+    "temperatureMax": "-11"
+  },
+  {
+    "title": "Переменная облачность",
+    "day": "Пн",
+    "dateTime": "08 янв",
+    "temperature": "-16",
+    "temperatureMax": "-8"
+  },
+  {
+    "title": "Облачно",
+    "day": "Вт",
+    "dateTime": "09 янв",
+    "temperature": "-8",
+    "temperatureMax": "-2"
+  },
+  {
+    "title": "Переменная облачность",
+    "day": "Вс",
+    "dateTime": "07 янв",
+    "temperature": "-17",
+    "temperatureMax": "-11"
+   
+  },
+  {
+    "title": "Переменная облачность",
+    "day": "Вс",
+    "dateTime": "07 янв",
+    "temperature": "-17",
+    "temperatureMax": "-11"
+    
+  }
+]

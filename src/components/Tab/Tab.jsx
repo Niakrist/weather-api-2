@@ -1,21 +1,37 @@
-import styles from "./Tab.module.css";
+import styles from './Tab.module.css';
+import Icon from '../Icon/Icon';
 
-export default function Tab({ children, name, value, forecast, setForecast }) {
+const Tab = ({
+  title,
+  dateTime,
+  day,
+  image,
+  temperature,
+  temperatureMax,
+}) => {
+  let temperatureText;
+  if (temperatureMax) {
+    temperatureText = `От ${temperature}° до ${temperatureMax}°`;
+  } else {
+    temperatureText = `${temperature}°`;
+  }
+
+  let dateTimeText;
+  if (day) {
+    dateTimeText = `${day}, ${dateTime}°`;
+  } else {
+    dateTimeText = dateTime;
+  }
+
   return (
-    <div>
-      <input
-        type="radio"
-        id={value}
-        className={styles.buttonInput}
-        name={name}
-        value={value}
-        onChange={() => setForecast(value)}
-        checked={forecast === value && true}
-      />
-      <label className={styles.buttonLabel} htmlFor={value}>
-        {children}
-      </label>
-      <div className={styles.underline}></div>
+    <div className={styles['card']}>
+      <time dateTime={dateTime} className={styles['text']}>
+        {dateTimeText}
+      </time>
+      <Icon name={image} className={styles.imgTab} />
+      <p className={styles['text']}>{temperatureText}</p>
     </div>
   );
-}
+};
+
+export default Tab;

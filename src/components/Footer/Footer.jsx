@@ -1,15 +1,16 @@
-import styles from "./Footer.module.css";
-import { memo } from "react";
+import styles from './Footer.module.css';
 
-export default memo(function Footer() {
+const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <p>
-        Проект выполнен в рамках стажировки{" "}
-        <a href="https://preax.ru" target="_blank" rel="noopener noreferrer">
+    <footer className={styles['footer']}>
+      <p className={styles['copyright']}>
+        Проект выполнен в рамках стажировки&nbsp;
+        <a className={styles['link']} target="_blank" href="https://preax.ru" rel="noreferrer">
           PREAX
         </a>
       </p>
     </footer>
   );
-});
+};
+
+export default Footer;

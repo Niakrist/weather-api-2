@@ -1,19 +1,38 @@
-.cardList {
+.card-list {
   display: grid;
   grid-template-columns: repeat(3, 158px);
   gap: 16px;
+  justify-self: end;
+  margin-block: 0;
+  padding-left: 0;
 }
 
-@media (max-width: 1023px) {
-  .cardList {
+@media (max-width: 886px) {
+  .card-list {
     grid-template-columns: repeat(3, 163px);
     gap: 12px;
   }
 }
 
-@media (max-width: 767px) {
-  .cardList {
-    grid-template-columns: repeat(3, minmax(98.33px, 128px));
-    gap: 8px;
+@media (max-width: 768px) {
+  .card-list {
+    grid-template-columns: repeat(
+      3,
+      clamp(8rem, -2.938rem + 27.34vw, 10.188rem)
+    );
+    gap: clamp(0.5rem, -0.75rem + 3.13vw, 0.75rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .card-list {
+    grid-template-columns: repeat(3, clamp(6.125rem, 3.472rem + 11.32vw, 8rem));
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    display: flex;
+    justify-content: center;
   }
 }

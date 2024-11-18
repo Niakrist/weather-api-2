@@ -1,41 +1,56 @@
-.buttonInput {
-  display: none;
+.card {
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: nowrap;
+  height: 32px;
 }
 
-.buttonLabel {
-  color: rgba(166, 166, 166, 1);
-  font-weight: 600;
-  transition: var(--transition);
-  cursor: pointer;
-  padding-right: 2px;
+.text {
+  color: rgb(32, 32, 32);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  white-space: nowrap;
+  margin: 0;
 }
 
-.underline {
-  transition: var(--transition);
-  opacity: 0;
-  margin-top: 2px;
-  height: 2px;
-  background-color: rgba(166, 166, 166, 1);
-  border-radius: 1px;
+.imgTab {
+  width: 32px;
+  height: 32px;
 }
 
-.buttonLabel:hover ~ .underline {
-  opacity: 1;
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    height: 100%;
+    padding: clamp(0.75rem, -0.5rem + 3.13vw, 1rem);
+    gap: clamp(0.75rem, -0.5rem + 3.13vw, 1rem);
+  }
+  .text {
+    font-size: clamp(0.75rem, -0.5rem + 3.13vw, 1rem);
+    line-height: clamp(1rem, -0.25rem + 3.13vw, 1.25rem);
+  }
+  .imgTab {
+    width: clamp(1.5rem, -1rem + 6.25vw, 2rem);
+    height: clamp(1.5rem, -1rem + 6.25vw, 2rem);
+  }
 }
 
-.buttonInput:checked ~ .buttonLabel {
-  color: var(--text-color);
-  cursor: default;
+@media (max-width: 640px) {
+  .card {
+    flex-direction: row;
+    height: 24px;
+  }
 }
-
-.buttonInput:checked ~ .underline {
-  background: var(--text-color);
-  opacity: 1;
-}
-
-@media (max-width: 767px) {
-  .underline {
-    margin-top: 2px;
-    height: 1px;
+@media (max-width: 375px) {
+  .card {
+    flex-direction: column;
+    height: 100%;
   }
 }

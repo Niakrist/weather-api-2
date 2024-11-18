@@ -1,53 +1,61 @@
+import { useContext } from "react";
 import { useState } from "react";
+import { fetchCityData } from "../../api/fetchCityData";
+import { MainContext } from "../../Context/context";
 import styles from "./Input.module.css";
-import Icon from "../Icon/Icon";
-import { CLOSE, SEARCH } from "../../constants/constants";
 
-export default function Input() {
-  const [value, setValue] = useState("");
+const Input = () => {
+  const { setCityName, cityData, setCityData, cardsWeatherData, setIsLoading } =
+    useContext(MainContext);
+  const [inputSearchCity, setInputSearchCity] = useState("");
 
-  const onChange = (event) => {
-    let userValue = event.target.value;
-    setValue(userValue);
-    console.log("Значение в input", value);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("Клик");
+
+    setIsLoading(true);
+
+    try {
+      const data = await fetchCityData(inputSearchCity);
+      setCityName(inputSearchCity);
+
+      console.log("data: ", data);
+      if (data?.address?.city.toLowerCase() !== inputSearchCity.toLowerCase()) {
+        throw new Error(
+          "Указанного города не существует!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        );
+      }
+
+      setInputSearchCity("");
+      setCityData(data);
+    } catch (error) {
+      console.error("Ошибка при получении данных о городе:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const onSubmit = () => {
-    console.log("Значение в input", value);
-  };
-
-  const onReset = () => {
-    setValue("");
+  const handleCleanInput = () => {
+    setInputSearchCity("");
   };
 
   return (
-    <form method="get" className={styles.form}>
+    <form className={styles["form"]} action="#" onSubmit={handleSubmit}>
       <input
-        className={styles.formInput}
-        type="text"
-        spellCheck="false"
-        autoComplete="off"
+        type="search"
+        className={styles["input"]}
         placeholder="Поиск по городу"
-        value={value}
-        onChange={onChange}
+        value={inputSearchCity}
+        onChange={(e) => setInputSearchCity(e.target.value)}
       />
-      {value === "" ? (
-        <button
-          type="button"
-          className={styles.formButton}
-          title="Поиск"
-          onClick={onSubmit}>
-          <Icon name={SEARCH} className={styles.buttonIcon} />
-        </button>
-      ) : (
-        <button
-          type="button"
-          className={styles.formButton}
-          title="Сброс"
-          onClick={onReset}>
-          <Icon name={CLOSE} className={styles.buttonIcon} />
-        </button>
-      )}
+      <button
+        type="button"
+        onClick={handleCleanInput}
+        className={inputSearchCity.length ? styles["btnColse"] : styles["btn"]}
+      />
     </form>
   );
-}
+};
+
+export default Input;

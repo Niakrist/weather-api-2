@@ -1,61 +1,38 @@
-import { useState } from "react";
-import SliderCard from "../SliderCard/SliderCard";
-import styles from "./Slider.module.css";
-import TabBar from "../TabBar/TabBar";
-import Icon from "../Icon/Icon";
-import { CHEVRON, HOURS } from "../../constants/constants";
+import { useState } from 'react';
+import styles from './Slider.module.css';
+import SLIDER_TYPE from '../../constants/SLIDER_TYPE.js';
 
-export default function Slider() {
-  const [forecast, setForecast] = useState("hours");
-  const hoursData = require("../../mock/hoursForecast.json");
-  const daysData = require("../../mock/daysForecast.json");
+import TabBar from '../TabBar/TabBar.jsx';
+
+const Slider = () => {
+  const [currentSliderType, setCurrentSliderType] = useState(
+    SLIDER_TYPE.forOneDay
+  );
 
   return (
-    <section className={styles.slider}>
-      <TabBar forecast={forecast} setForecast={setForecast} />
-      <div className={styles.sliderCarousel}>
-        {forecast === HOURS ? (
-          <div className={styles.carouselHours}>
-            <button className={styles.previousButton} disabled>
-              <Icon name={CHEVRON} className={styles.previousButtonImg} />
-            </button>
-            <ul className={styles.gallery}>
-              {hoursData.map((element, index) => (
-                <li key={index}>
-                  <SliderCard
-                    time={element.time}
-                    icon={element.icon}
-                    value={element.value}
-                  />
-                </li>
-              ))}
-            </ul>
-            <button className={styles.nextButton}>
-              <Icon name={CHEVRON} className={styles.nextButtonImg} />
-            </button>
-          </div>
-        ) : (
-          <div className={styles.carouselDaily}>
-            <button className={styles.previousButton} disabled={true}>
-              <Icon name={CHEVRON} className={styles.previousButtonImg} />
-            </button>
-            <ul className={styles.gallery}>
-              {daysData.map((element, index) => (
-                <li key={index}>
-                  <SliderCard
-                    time={element.time}
-                    icon={element.icon}
-                    value={element.value}
-                  />
-                </li>
-              ))}
-            </ul>
-            <button className={styles.nextButton}>
-              <Icon name={CHEVRON} className={styles.nextButtonImg} />
-            </button>
-          </div>
-        )}
+    <section className={styles['slider']}>
+      <div className={styles['tabs-wrapper']}>
+        <h2 className={styles['tabs-header']}>Прогноз:</h2>
+        <div className={styles['tabs']}>
+          <button
+            className={styles['tab']}
+            onClick={() => setCurrentSliderType(SLIDER_TYPE.forOneDay)}
+            disabled={currentSliderType === SLIDER_TYPE.forOneDay}
+          >
+            на 24 часа
+          </button>
+          <button
+            className={styles['tab']}
+            onClick={() => setCurrentSliderType(SLIDER_TYPE.forFiveDays)}
+            disabled={currentSliderType === SLIDER_TYPE.forFiveDays}
+          >
+            на 5 дней
+          </button>
+        </div>
       </div>
+      <TabBar currentSlider={currentSliderType} />
     </section>
   );
-}
+};
+
+export default Slider;

@@ -1,32 +1,21 @@
-.main {
-  height: 472px;
-  display: grid;
-  grid-template-columns: 1fr 506px;
-  column-gap: 16px;
-  align-items: center;
-  padding-block: 32px;
+.weather-today {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 0;
+  gap: 16px;
 }
-
-@media (max-width: 767px) {
-  .main {
-    height: 552px;
-    display: grid;
-    grid-template-columns: none;
-    grid-template-rows: 184px 304px;
-    padding-block: 16px;
-    gap: 32px;
-    justify-content: center;
+@media (max-width: 886px) {
+  .weather-today {
+    flex-direction: column;
+    gap: 48px;
+    justify-items: center;
+    padding: 24px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .main {
-    height: 806px;
-    display: grid;
-    grid-template-columns: none;
-    grid-template-rows: 306px 404px;
-    padding-block: 24px;
-    gap: 48px;
-    justify-content: center;
+@media (max-width: 768px) {
+  .weather-today {
+    padding: clamp(1rem, -1.5rem + 6.25vw, 1.5rem);
+    gap: clamp(2rem, -3rem + 12.5vw, 3rem);
   }
 }

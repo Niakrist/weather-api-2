@@ -1,36 +1,55 @@
+import styles from "./Card.module.css";
 import Icon from "../Icon/Icon";
 import ProgressBar from "../ProgressBar/ProgressBar";
-import styles from "./Card.module.css";
 
-export default function Card({ data }) {
-  const value = parseInt(data.value);
-  const current = value > 100 ? value / 10 : value;
+const Card = ({
+  title,
+  value,
+  hasProgressBar,
+  measurement,
+  meaning,
+  meaningEnd,
+  hasGradient,
+  deg,
+}) => {
+  let valuePercentage = value;
+  while (valuePercentage > 100) {
+    valuePercentage /= 10;
+  }
+
+  let imgName;
+  if (title === "Влажность") {
+    imgName = "humidity";
+  } else if (title === "Давление") {
+    imgName = "barometer";
+  } else if (title === "Видимость") {
+    imgName = "visibility";
+  } else if (title === "Рассвет") {
+    imgName = "sunrise";
+  } else if (title === "Закат") {
+    imgName = "sunset";
+  } else if (title === "Сила ветра") {
+    imgName = "direction";
+  }
 
   return (
-    <article className={styles.card}>
-      <div className={styles.cardValues}>
-        <h4>{data.name}</h4>
-        <Icon
-          name={data.title}
-          className={styles.icon}
-          alt={data.name}
-          loading="lazy"
-        />
-
-        <p>{data.value || data.time || data.speed}</p>
+    <li className={styles["card"]}>
+      <h2 className={styles["title"]}>{title}</h2>
+      <Icon
+        name={imgName}
+        className={styles.imgCard}
+        style={{ transform: deg && `rotate(${deg + 45}deg)` }}
+      />
+      <p className={styles["degree"]}>{`${value} ${measurement}`}</p>
+      {hasProgressBar ? (
+        <ProgressBar current={valuePercentage} type={hasGradient} />
+      ) : null}
+      <div className={styles["box"]}>
+        <p className={styles["indicator"]}>{meaning}</p>
+        {meaningEnd && <p className={styles["indicator"]}>{meaningEnd}</p>}
       </div>
-      <div className={styles.cardBar}>
-        {data.value && (
-          <ProgressBar title={data.title} current={current} type={data.type} />
-        )}
-        <div className={styles.barValues} name={data.title}>
-          {typeof data.description === "string" && data.description}
-          {typeof data.description !== "string" &&
-            data.description.map((element) => (
-              <span key={element}>{element}</span>
-            ))}
-        </div>
-      </div>
-    </article>
+    </li>
   );
-}
+};
+
+export default Card;

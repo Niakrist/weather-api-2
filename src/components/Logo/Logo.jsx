@@ -1,13 +1,20 @@
-import styles from "./Logo.module.css";
-import Icon from "../Icon/Icon";
-import { LOGODESCTOP, LOGOMOBILE, LOGOTABLET } from "../../constants/constants";
+import styles from './Logo.module.css';
+import LogoMobileSvg from '../../assets/icon/logo-small.svg';
+import Icon from '../Icon/Icon';
 
-export default function Logo() {
+const Logo = () => {
   return (
-    <a href="/">
-      <Icon name={LOGODESCTOP} className={styles.logoDesktop} />
-      <Icon name={LOGOTABLET} className={styles.logoTablet} />
-      <Icon name={LOGOMOBILE} className={styles.logoMobile} />
+    <a className={styles['logo']} href="index.html">
+      <picture>
+        <source
+          srcSet={LogoMobileSvg}
+          media="(max-width: 886px)"
+          alt="Логотип"
+        />
+        <Icon name={'logo'} className={styles['logo-small']} />
+      </picture>
     </a>
   );
-}
+};
+
+export default Logo;

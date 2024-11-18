@@ -1,12 +1,19 @@
-import CardList from "../CardList/CardList";
-import CityCard from "../CityCard/CityCard";
-import styles from "./Main.module.css";
+import styles from './Main.module.css';
 
-export default function Main() {
+import CityCard from './../CityCard/CityCard';
+import CardList from './../CardList/CardList';
+import Slider from '../Slider/Slider';
+
+const Main = () => {
   return (
-    <main className={styles.main}>
-      <CityCard />
-      <CardList />
+    <main>
+      <section className={styles['weather-today']}>
+        <CityCard />
+        <CardList />
+      </section>
+      <Slider />
     </main>
   );
-}
+};
+
+export default Main;

@@ -1,26 +1,23 @@
 .header {
-  height: 112px;
-  font-size: 20px;
-  line-height: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 32px;
 }
-
-@media (max-width: 767px) {
+@media (max-width: 886px) {
   .header {
-    height: 64px;
+    padding-bottom: 24px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 885px) {
+@media (max-width: 768px) {
   .header {
-    height: 96px;
+    padding-bottom: clamp(1rem, -1.5rem + 6.25vw, 1.5rem);
   }
 }
 
-@media (min-width: 886px) and (max-width: 1023px) {
+@media (max-width: 640px) {
   .header {
-    height: 96px;
+    padding-bottom: clamp(1rem, -1.5rem + 6.25vw, 1.5rem);
   }
 }

@@ -1,20 +1,96 @@
-.sliderMenu {
-  width: 100%;
-  height: 32px;
-  display: flex;
-  justify-content: start;
-  align-items: baseline;
-  gap: 32px;
-}
-
-@media (max-width: 1023px) {
-  .sliderMenu {
-    gap: 24px;
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
   }
 }
 
-@media (max-width: 767px) {
-  .sliderMenu {
-    gap: 16px;
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  gap: 32px;
+}
+
+.btn {
+  padding: 12px 16px;
+  background: var(--color-bg);
+  opacity: 0.5;
+  border-radius: 8px;
+  width: 56px;
+  height: 48px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  flex: none;
+}
+
+.cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, #000 97%, transparent 100%);
+
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.btn-img {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 886px) {
+  .wrapper {
+    margin-top: 24px;
+  }
+  .cards {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    gap: clamp(1rem, -1.5rem + 6.25vw, 1.5rem);
+    margin-top: clamp(1rem, -1.5rem + 6.25vw, 1.5rem);
+  }
+  .btn {
+    padding: clamp(0.5rem, -0.75rem + 3.13vw, 0.75rem)
+      clamp(0.75rem, -0.5rem + 3.13vw, 1rem);
+    width: clamp(2.5rem, -2.5rem + 12.5vw, 3.5rem);
+    height: clamp(2rem, -3rem + 12.5vw, 3rem);
+  }
+  .btn-img {
+    width: clamp(1rem, -1.5rem + 6.25vw, 1.5rem);
+    height: clamp(1rem, -1.5rem + 6.25vw, 1.5rem);
   }
 }
